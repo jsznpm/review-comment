@@ -1,0 +1,34 @@
+{
+  "name": "review-comment",
+  "version": "0.1.0",
+  "description": "Claude Code plugin: review GitHub pull requests and GitLab merge requests into a copy-paste review.md or post inline comments.",
+  "type": "module",
+  "license": "MIT",
+  "author": "javidselimov12345",
+  "keywords": [
+    "claude-code",
+    "claude-plugin",
+    "code-review",
+    "github",
+    "gitlab",
+    "pull-request",
+    "merge-request"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    ".claude-plugin/",
+    "skills/",
+    "rules/",
+    "bin/",
+    "lib/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node tests/run.mjs",
+    "eval": "node tests/fixtures/eval.mjs"
+  }
+}

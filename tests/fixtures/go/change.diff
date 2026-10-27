@@ -1,0 +1,69 @@
+diff --git a/internal/worker/worker.go b/internal/worker/worker.go
+new file mode 100644
+--- /dev/null
++++ b/internal/worker/worker.go
+@@ -0,0 +1,64 @@
++package worker
++
++import (
++	"encoding/json"
++	"net/http"
++	"os"
++	"strconv"
++	"sync"
++)
++
++var cache map[string]Item
++
++type Item struct {
++	ID   string `json:"id"`
++	Name string `json:"name"`
++}
++
++type Counter struct {
++	mu sync.Mutex
++	n  int
++}
++
++func (c Counter) Inc() {
++	c.mu.Lock()
++	c.n++
++	c.mu.Unlock()
++}
++
++func LoadConfig(path string) []byte {
++	data, _ := os.ReadFile(path)
++	return data
++}
++
++func Fetch(url string) (Item, error) {
++	var it Item
++	resp, err := http.Get(url)
++	if err != nil {
++		return it, err
++	}
++	err = json.NewDecoder(resp.Body).Decode(&it)
++	return it, err
++}
++
++func Store(it Item) {
++	cache[it.ID] = it
++}
++
++func StartWorkers(jobs chan Item) {
++	for i := 0; i < 4; i++ {
++		go func() {
++			for {
++				Store(<-jobs)
++			}
++		}()
++	}
++}
++
++func MustPort(s string) int {
++	p, err := strconv.Atoi(s)
++	if err != nil {
++		panic(err)
++	}
++	return p
++}

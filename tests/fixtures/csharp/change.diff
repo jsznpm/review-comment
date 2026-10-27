@@ -1,0 +1,56 @@
+diff --git a/src/Orders/OrderService.cs b/src/Orders/OrderService.cs
+new file mode 100644
+--- /dev/null
++++ b/src/Orders/OrderService.cs
+@@ -0,0 +1,51 @@
++using System;
++using System.Collections.Generic;
++using System.IO;
++using System.Linq;
++using System.Net.Http;
++using System.Threading.Tasks;
++
++namespace Shop.Orders;
++
++public class OrderService
++{
++    public static List<Order> RecentOrders = new List<Order>();
++    private readonly ShopDbContext _db;
++
++    public OrderService(ShopDbContext db)
++    {
++        _db = db;
++    }
++
++    public async void PlaceOrder(Order order)
++    {
++        _db.Orders.Add(order);
++        await _db.SaveChangesAsync();
++        RecentOrders.Add(order);
++    }
++
++    public decimal GetDiscount(string customerId)
++    {
++        var customer = _db.Customers.FindAsync(customerId).Result;
++        try
++        {
++            return customer.Points > 1000 ? 0.1m : 0m;
++        }
++        catch (Exception)
++        {
++            return 0m;
++        }
++    }
++
++    public async Task<string> ExportAsync(string path)
++    {
++        var writer = new StreamWriter(path);
++        foreach (var order in _db.Orders.ToList())
++        {
++            var customer = await _db.Customers.FindAsync(order.CustomerId);
++            await writer.WriteLineAsync($"{order.Id};{customer.Name}");
++        }
++        using var http = new HttpClient();
++        return await http.GetStringAsync("https://example.com/ack");
++    }
++}

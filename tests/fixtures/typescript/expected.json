@@ -1,0 +1,40 @@
+{
+  "path": "src/billing/invoice.ts",
+  "issues": [
+    {
+      "line": 9,
+      "ruleId": "TS-011",
+      "hint": "export let lastInvoice"
+    },
+    {
+      "line": 11,
+      "ruleId": "TS-001",
+      "hint": "loadInvoice(id: any)"
+    },
+    {
+      "line": 13,
+      "ruleId": "TS-004",
+      "hint": "(await res.json()) as Invoice"
+    },
+    {
+      "line": 19,
+      "ruleId": "GEN-006",
+      "hint": "invoice.amount > 5000"
+    },
+    {
+      "line": 26,
+      "ruleId": "TS-002",
+      "hint": "i.id === id)!"
+    },
+    {
+      "line": 27,
+      "ruleId": "TS-005",
+      "hint": "api.post('/reminders'"
+    },
+    {
+      "line": 33,
+      "ruleId": "GEN-008",
+      "hint": "} catch (e) {}"
+    }
+  ]
+}

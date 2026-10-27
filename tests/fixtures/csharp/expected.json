@@ -1,0 +1,40 @@
+{
+  "path": "src/Orders/OrderService.cs",
+  "issues": [
+    {
+      "line": 12,
+      "ruleId": "CS-011",
+      "hint": "public static List<Order> RecentOrders"
+    },
+    {
+      "line": 20,
+      "ruleId": "CS-001",
+      "hint": "public async void PlaceOrder"
+    },
+    {
+      "line": 29,
+      "ruleId": "CS-002",
+      "hint": "FindAsync(customerId).Result"
+    },
+    {
+      "line": 34,
+      "ruleId": "CS-005",
+      "hint": "catch (Exception)"
+    },
+    {
+      "line": 42,
+      "ruleId": "CS-004",
+      "hint": "new StreamWriter(path)"
+    },
+    {
+      "line": 45,
+      "ruleId": "CS-016",
+      "hint": "FindAsync(order.CustomerId)"
+    },
+    {
+      "line": 48,
+      "ruleId": "CS-017",
+      "hint": "new HttpClient()"
+    }
+  ]
+}

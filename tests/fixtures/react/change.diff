@@ -1,0 +1,44 @@
+diff --git a/src/features/orders/components/OrdersPage.tsx b/src/features/orders/components/OrdersPage.tsx
+new file mode 100644
+--- /dev/null
++++ b/src/features/orders/components/OrdersPage.tsx
+@@ -0,0 +1,39 @@
++import { useEffect, useState } from 'react';
++import { formatPrice } from '@/features/billing/utils/format-price';
++
++type Order = { id: string; total: number; paid: boolean };
++
++export function OrdersPage({ customerId }: { customerId: string }) {
++  const [orders, setOrders] = useState<Order[]>([]);
++  const [unpaid, setUnpaid] = useState<Order[]>([]);
++
++  useEffect(() => {
++    fetch(`/api/customers/${customerId}/orders`)
++      .then((r) => r.json())
++      .then(setOrders);
++  }, []);
++
++  useEffect(() => {
++    setUnpaid(orders.filter((o) => !o.paid));
++  }, [orders]);
++
++  const Row = ({ order }: { order: Order }) => (
++    <tr>
++      <td>{order.id}</td>
++      <td>{formatPrice(order.total)}</td>
++    </tr>
++  );
++
++  return (
++    <div>
++      <div onClick={() => setOrders([])}>Clear</div>
++      <table>
++        <tbody>
++          {unpaid.map((order, i) => (
++            <Row key={i} order={order} />
++          ))}
++        </tbody>
++      </table>
++    </div>
++  );
++}

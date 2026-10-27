@@ -1,0 +1,9 @@
+.claude/settings.local.json
+node_modules/
+*.log
+.env*
+.review-comment/
+review.md
+*.tgz
+.DS_Store
+Thumbs.db

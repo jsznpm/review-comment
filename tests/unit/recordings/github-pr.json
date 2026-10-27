@@ -1,0 +1,47 @@
+{
+  "kind": "token",
+  "responses": {
+    "GET /repos/acme/shop/pulls/7": {
+      "body": {
+        "title": "Add discount",
+        "base": {
+          "sha": "base111"
+        },
+        "head": {
+          "sha": "head222"
+        }
+      }
+    },
+    "GET /repos/acme/shop/pulls/7/files?per_page=100&page=1": {
+      "body": [
+        {
+          "filename": "src/price.ts",
+          "status": "modified",
+          "patch": "@@ -1,3 +1,5 @@\n export function price(base: number) {\n-  return base * 1.18;\n+  const total = base * 1.18;\n+  if (total > 100) return total * 0.9;\n+  return total;\n }\n@@ -18,3 +20,4 @@ export function ship()\n export function ship() {\n+  try { send(); } catch (e) {}\n   return 5;\n }"
+        },
+        {
+          "filename": "src/View.tsx",
+          "status": "added",
+          "patch": "@@ -0,0 +1,2 @@\n+export const View = () => <div />;\n+export default View;"
+        },
+        {
+          "filename": "package-lock.json",
+          "status": "modified",
+          "patch": "@@ -1 +1 @@\n-a\n+b"
+        },
+        {
+          "filename": "src/old.ts",
+          "status": "removed",
+          "patch": "@@ -1 +0,0 @@\n-x"
+        },
+        {
+          "filename": "logo.png",
+          "status": "added"
+        }
+      ]
+    },
+    "GET /repos/acme/shop/pulls/7/comments?per_page=100&page=1": {
+      "body": []
+    }
+  }
+}

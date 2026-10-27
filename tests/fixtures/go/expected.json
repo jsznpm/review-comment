@@ -1,0 +1,40 @@
+{
+  "path": "internal/worker/worker.go",
+  "issues": [
+    {
+      "line": 11,
+      "ruleId": "GO-011",
+      "hint": "var cache map[string]Item"
+    },
+    {
+      "line": 23,
+      "ruleId": "GO-008",
+      "hint": "func (c Counter) Inc()"
+    },
+    {
+      "line": 30,
+      "ruleId": "GO-001",
+      "hint": "data, _ := os.ReadFile(path)"
+    },
+    {
+      "line": 36,
+      "ruleId": "GO-016",
+      "hint": "resp, err := http.Get(url)"
+    },
+    {
+      "line": 45,
+      "ruleId": "GO-014",
+      "hint": "cache[it.ID] = it"
+    },
+    {
+      "line": 50,
+      "ruleId": "GO-006",
+      "hint": "go func() {"
+    },
+    {
+      "line": 61,
+      "ruleId": "GO-004",
+      "hint": "panic(err)"
+    }
+  ]
+}
