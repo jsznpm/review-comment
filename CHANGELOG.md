@@ -6,6 +6,14 @@ rules are listed under **Retired**.
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-10-27
+
+### Changed
+
+- Package metadata: `homepage`, `repository` and `bugs` links in `package.json`;
+  `homepage` and `repository` in `plugin.json`.
+- Published files use LF line endings (`.gitattributes`).
+
 ## [0.1.0] - 2026-10-27
 
 ### Added

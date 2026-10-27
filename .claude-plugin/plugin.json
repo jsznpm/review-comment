@@ -1,6 +1,6 @@
 {
   "name": "review-comment",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Review GitHub PRs and GitLab MRs: write a copy-paste review.md or post inline comments.",
   "author": {
     "name": "javidselimov12345"

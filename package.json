@@ -1,6 +1,6 @@
 {
   "name": "review-comment",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Claude Code plugin: review GitHub pull requests and GitLab merge requests into a copy-paste review.md or post inline comments.",
   "type": "module",
   "license": "MIT",
