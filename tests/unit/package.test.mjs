@@ -29,7 +29,7 @@ test('published files include the plugin', () => {
 test('both skills exist with matching names', () => {
   for (const name of ['review-file', 'review-post']) {
     const md = fs.readFileSync(path.join(root, 'skills', name, 'SKILL.md'), 'utf8');
-    assert.match(md, new RegExp(`^---\\nname: ${name}\\n`, 'm'));
+    assert.match(md, new RegExp(`^---\\r?\\nname: ${name}\\r?\\n`, 'm'));
     assert.match(md, /^description: .+/m);
   }
   const fileSkill = fs.readFileSync(path.join(root, 'skills', 'review-file', 'SKILL.md'), 'utf8');

@@ -5,6 +5,14 @@
   "type": "module",
   "license": "MIT",
   "author": "javidselimov12345",
+  "homepage": "https://github.com/jsznpm/review-comment#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsznpm/review-comment.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jsznpm/review-comment/issues"
+  },
   "keywords": [
     "claude-code",
     "claude-plugin",

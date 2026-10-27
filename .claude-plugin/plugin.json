@@ -5,6 +5,8 @@
   "author": {
     "name": "javidselimov12345"
   },
+  "homepage": "https://github.com/jsznpm/review-comment#readme",
+  "repository": "https://github.com/jsznpm/review-comment",
   "license": "MIT",
   "keywords": ["code-review", "github", "gitlab", "pull-request", "merge-request"]
 }
