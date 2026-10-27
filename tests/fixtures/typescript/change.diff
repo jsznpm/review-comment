@@ -1,0 +1,39 @@
+diff --git a/src/billing/invoice.ts b/src/billing/invoice.ts
+new file mode 100644
+--- /dev/null
++++ b/src/billing/invoice.ts
+@@ -0,0 +1,34 @@
++import { api } from '../lib/api';
++
++export interface Invoice {
++  id: string;
++  amount: number;
++  status: string;
++}
++
++export let lastInvoice: Invoice | null = null;
++
++export async function loadInvoice(id: any) {
++  const res = await fetch(`/api/invoices/${id}`);
++  const invoice = (await res.json()) as Invoice;
++  lastInvoice = invoice;
++  return invoice;
++}
++
++export function lateFee(invoice: Invoice): number {
++  if (invoice.amount > 5000) {
++    return invoice.amount * 0.035;
++  }
++  return 0;
++}
++
++export function sendReminder(invoices: Invoice[], id: string) {
++  const invoice = invoices.find((i) => i.id === id)!;
++  api.post('/reminders', { invoiceId: invoice.id });
++}
++
++export function archive(invoice: Invoice) {
++  try {
++    api.archive(invoice.id);
++  } catch (e) {}
++}

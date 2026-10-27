@@ -1,0 +1,37 @@
+diff --git a/src/cart.js b/src/cart.js
+new file mode 100644
+--- /dev/null
++++ b/src/cart.js
+@@ -0,0 +1,32 @@
++var cartTotal = 0;
++
++export function addItem(cart, item) {
++  cart.items.push(item);
++  cartTotal = cartTotal + item.price;
++  return cart;
++}
++
++export function isEmpty(cart) {
++  return cart.items.length == 0;
++}
++
++export async function loadPrices(ids) {
++  const prices = [];
++  for (const id of ids) {
++    prices.push(await fetchPrice(id));
++  }
++  return prices;
++}
++
++export function renderCart(cart, el) {
++  el.innerHTML = cart.items.map((i) => `<li>${i.name}</li>`).join('');
++}
++
++export function applyCoupon(code) {
++  const pct = parseInt(code.slice(-2));
++  return pct;
++}
++
++export function checkout(cart) {
++  saveCart(cart).then(() => redirect('/done'));
++}

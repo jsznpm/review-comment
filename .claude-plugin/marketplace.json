@@ -1,0 +1,18 @@
+{
+  "name": "review-comment",
+  "description": "Merge request review skills for GitHub and GitLab",
+  "owner": {
+    "name": "javidselimov12345"
+  },
+  "plugins": [
+    {
+      "name": "review-comment",
+      "description": "Review GitHub PRs and GitLab MRs: copy-paste review.md or inline comments",
+      "category": "code-review",
+      "source": {
+        "source": "npm",
+        "package": "review-comment"
+      }
+    }
+  ]
+}

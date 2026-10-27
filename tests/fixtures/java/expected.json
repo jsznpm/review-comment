@@ -1,0 +1,45 @@
+{
+  "path": "src/main/java/shop/ReportService.java",
+  "issues": [
+    {
+      "line": 14,
+      "ruleId": "JAVA-007",
+      "hint": "public static Map<String, Double> TOTALS"
+    },
+    {
+      "line": 17,
+      "ruleId": "JAVA-011",
+      "hint": "private OrderRepository orders;"
+    },
+    {
+      "line": 20,
+      "ruleId": "JAVA-001",
+      "hint": "new BufferedReader(new FileReader(path))"
+    },
+    {
+      "line": 28,
+      "ruleId": "JAVA-013",
+      "hint": "o.getId() == id"
+    },
+    {
+      "line": 32,
+      "ruleId": "JAVA-002",
+      "hint": "return null;"
+    },
+    {
+      "line": 36,
+      "ruleId": "JAVA-015",
+      "hint": "double sum = 0;"
+    },
+    {
+      "line": 46,
+      "ruleId": "JAVA-006",
+      "hint": "catch (InterruptedException e)"
+    },
+    {
+      "line": 52,
+      "ruleId": "JAVA-012",
+      "hint": "forEach(o -> names.add"
+    }
+  ]
+}

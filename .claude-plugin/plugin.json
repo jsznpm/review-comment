@@ -1,0 +1,10 @@
+{
+  "name": "review-comment",
+  "version": "0.1.0",
+  "description": "Review GitHub PRs and GitLab MRs: write a copy-paste review.md or post inline comments.",
+  "author": {
+    "name": "javidselimov12345"
+  },
+  "license": "MIT",
+  "keywords": ["code-review", "github", "gitlab", "pull-request", "merge-request"]
+}

@@ -1,0 +1,60 @@
+diff --git a/src/main/java/shop/ReportService.java b/src/main/java/shop/ReportService.java
+new file mode 100644
+--- /dev/null
++++ b/src/main/java/shop/ReportService.java
+@@ -0,0 +1,55 @@
++package shop;
++
++import java.io.BufferedReader;
++import java.io.FileReader;
++import java.util.ArrayList;
++import java.util.HashMap;
++import java.util.List;
++import java.util.Map;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.stereotype.Service;
++
++@Service
++public class ReportService {
++    public static Map<String, Double> TOTALS = new HashMap<>();
++
++    @Autowired
++    private OrderRepository orders;
++
++    public String firstLine(String path) throws Exception {
++        BufferedReader reader = new BufferedReader(new FileReader(path));
++        String line = reader.readLine();
++        reader.close();
++        return line;
++    }
++
++    public Order findOrder(String id) {
++        for (Order o : orders.findAll()) {
++            if (o.getId() == id) {
++                return o;
++            }
++        }
++        return null;
++    }
++
++    public double total(List<Order> list) {
++        double sum = 0;
++        for (Order o : list) {
++            sum += o.getPrice() * o.getQuantity();
++        }
++        return sum;
++    }
++
++    public void waitForBatch() {
++        try {
++            Thread.sleep(5000);
++        } catch (InterruptedException e) {
++        }
++    }
++
++    public List<String> paidCustomers(List<Order> list) {
++        List<String> names = new ArrayList<>();
++        list.stream().filter(Order::isPaid).forEach(o -> names.add(o.getCustomer()));
++        return names;
++    }
++}

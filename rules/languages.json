@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "general": "general.md",
+  "languages": {
+    "csharp": { "file": "csharp.md", "prefix": "CS", "extensions": [".cs"] },
+    "go": { "file": "go.md", "prefix": "GO", "extensions": [".go"] },
+    "java": { "file": "java.md", "prefix": "JAVA", "extensions": [".java"] },
+    "typescript": { "file": "typescript.md", "prefix": "TS", "extensions": [".ts", ".mts", ".cts", ".tsx"] },
+    "javascript": { "file": "javascript.md", "prefix": "JS", "extensions": [".js", ".mjs", ".cjs", ".jsx"] },
+    "react": { "file": "react.md", "prefix": "REACT", "extensions": [".jsx", ".tsx"] }
+  },
+  "skip": [
+    "package-lock.json",
+    "yarn.lock",
+    "pnpm-lock.yaml",
+    "go.sum",
+    "*.min.js",
+    "*.min.css",
+    "*.map",
+    "dist/**",
+    "build/**",
+    "bin/Debug/**",
+    "bin/Release/**",
+    "obj/**",
+    "vendor/**",
+    "node_modules/**",
+    "*.g.cs",
+    "*.Designer.cs",
+    "*.generated.*",
+    "*.pb.go"
+  ]
+}

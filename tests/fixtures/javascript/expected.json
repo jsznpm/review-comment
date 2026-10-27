@@ -1,0 +1,40 @@
+{
+  "path": "src/cart.js",
+  "issues": [
+    {
+      "line": 1,
+      "ruleId": "JS-002",
+      "hint": "var cartTotal = 0;"
+    },
+    {
+      "line": 4,
+      "ruleId": "JS-004",
+      "hint": "cart.items.push(item);"
+    },
+    {
+      "line": 10,
+      "ruleId": "JS-001",
+      "hint": "cart.items.length == 0"
+    },
+    {
+      "line": 16,
+      "ruleId": "JS-005",
+      "hint": "prices.push(await fetchPrice(id));"
+    },
+    {
+      "line": 22,
+      "ruleId": "JS-008",
+      "hint": "el.innerHTML ="
+    },
+    {
+      "line": 26,
+      "ruleId": "JS-011",
+      "hint": "parseInt(code.slice(-2))"
+    },
+    {
+      "line": 31,
+      "ruleId": "JS-006",
+      "hint": "saveCart(cart).then(() => redirect('/done'));"
+    }
+  ]
+}

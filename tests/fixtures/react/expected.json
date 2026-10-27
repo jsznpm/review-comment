@@ -1,0 +1,40 @@
+{
+  "path": "src/features/orders/components/OrdersPage.tsx",
+  "issues": [
+    {
+      "line": 2,
+      "ruleId": "REACT-012",
+      "hint": "from '@/features/billing/utils/format-price'"
+    },
+    {
+      "line": 11,
+      "ruleId": "REACT-011",
+      "hint": "fetch(`/api/customers/${customerId}/orders`)"
+    },
+    {
+      "line": 14,
+      "ruleId": "REACT-003",
+      "hint": "}, []);"
+    },
+    {
+      "line": 17,
+      "ruleId": "REACT-001",
+      "hint": "setUnpaid(orders.filter"
+    },
+    {
+      "line": 20,
+      "ruleId": "REACT-008",
+      "hint": "const Row = ({ order }"
+    },
+    {
+      "line": 29,
+      "ruleId": "REACT-017",
+      "hint": "<div onClick={() => setOrders([])}>"
+    },
+    {
+      "line": 33,
+      "ruleId": "REACT-005",
+      "hint": "<Row key={i}"
+    }
+  ]
+}
